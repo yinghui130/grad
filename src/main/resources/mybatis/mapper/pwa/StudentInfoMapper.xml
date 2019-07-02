@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.ldu.grad.mapper.StudentInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.ldu.grad.pojo.StudentInfo">
+    <id column="PERSON_ID" jdbcType="VARCHAR" property="personId" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="ACCESS_TYPE" jdbcType="VARCHAR" property="accessType" />
+    <result column="EXAM_NO" jdbcType="VARCHAR" property="examNo" />
+    <result column="STUDENT_NO" jdbcType="VARCHAR" property="studentNo" />
+    <result column="COLLEGE_CODE" jdbcType="VARCHAR" property="collegeCode" />
+    <result column="MAJOR_CODE" jdbcType="VARCHAR" property="majorCode" />
+    <result column="MAJOR_NAME" jdbcType="VARCHAR" property="majorName" />
+    <result column="EDU_TYPE" jdbcType="VARCHAR" property="eduType" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="POST_CODE" jdbcType="VARCHAR" property="postCode" />
+    <result column="TEL_NO1" jdbcType="VARCHAR" property="telNo1" />
+    <result column="TEL_NO2" jdbcType="VARCHAR" property="telNo2" />
+    <result column="EMS" jdbcType="VARCHAR" property="ems" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="COLLEGE_NAME" jdbcType="VARCHAR" property="collegeName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PERSON_ID, NAME, ACCESS_TYPE, EXAM_NO, STUDENT_NO, COLLEGE_CODE, MAJOR_CODE, MAJOR_NAME, 
+    EDU_TYPE, ADDRESS, POST_CODE, TEL_NO1, TEL_NO2, EMS, UPDATE_TIME, COLLEGE_NAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from STUDENT
+    where PERSON_ID = #{personId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from STUDENT
+    where PERSON_ID = #{personId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.edu.ldu.grad.pojo.StudentInfo">
+    insert into STUDENT (PERSON_ID, NAME, ACCESS_TYPE, 
+      EXAM_NO, STUDENT_NO, COLLEGE_CODE, 
+      MAJOR_CODE, MAJOR_NAME, EDU_TYPE, 
+      ADDRESS, POST_CODE, TEL_NO1, 
+      TEL_NO2, EMS, UPDATE_TIME, 
+      COLLEGE_NAME)
+    values (#{personId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{accessType,jdbcType=VARCHAR}, 
+      #{examNo,jdbcType=VARCHAR}, #{studentNo,jdbcType=VARCHAR}, #{collegeCode,jdbcType=VARCHAR}, 
+      #{majorCode,jdbcType=VARCHAR}, #{majorName,jdbcType=VARCHAR}, #{eduType,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{postCode,jdbcType=VARCHAR}, #{telNo1,jdbcType=VARCHAR}, 
+      #{telNo2,jdbcType=VARCHAR}, #{ems,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{collegeName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.ldu.grad.pojo.StudentInfo">
+    insert into STUDENT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="personId != null">
+        PERSON_ID,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="accessType != null">
+        ACCESS_TYPE,
+      </if>
+      <if test="examNo != null">
+        EXAM_NO,
+      </if>
+      <if test="studentNo != null">
+        STUDENT_NO,
+      </if>
+      <if test="collegeCode != null">
+        COLLEGE_CODE,
+      </if>
+      <if test="majorCode != null">
+        MAJOR_CODE,
+      </if>
+      <if test="majorName != null">
+        MAJOR_NAME,
+      </if>
+      <if test="eduType != null">
+        EDU_TYPE,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="postCode != null">
+        POST_CODE,
+      </if>
+      <if test="telNo1 != null">
+        TEL_NO1,
+      </if>
+      <if test="telNo2 != null">
+        TEL_NO2,
+      </if>
+      <if test="ems != null">
+        EMS,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="collegeName != null">
+        COLLEGE_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="personId != null">
+        #{personId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="accessType != null">
+        #{accessType,jdbcType=VARCHAR},
+      </if>
+      <if test="examNo != null">
+        #{examNo,jdbcType=VARCHAR},
+      </if>
+      <if test="studentNo != null">
+        #{studentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="collegeCode != null">
+        #{collegeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="majorCode != null">
+        #{majorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="majorName != null">
+        #{majorName,jdbcType=VARCHAR},
+      </if>
+      <if test="eduType != null">
+        #{eduType,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="postCode != null">
+        #{postCode,jdbcType=VARCHAR},
+      </if>
+      <if test="telNo1 != null">
+        #{telNo1,jdbcType=VARCHAR},
+      </if>
+      <if test="telNo2 != null">
+        #{telNo2,jdbcType=VARCHAR},
+      </if>
+      <if test="ems != null">
+        #{ems,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="collegeName != null">
+        #{collegeName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.ldu.grad.pojo.StudentInfo">
+    update STUDENT
+    <set>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="accessType != null">
+        ACCESS_TYPE = #{accessType,jdbcType=VARCHAR},
+      </if>
+      <if test="examNo != null">
+        EXAM_NO = #{examNo,jdbcType=VARCHAR},
+      </if>
+      <if test="studentNo != null">
+        STUDENT_NO = #{studentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="collegeCode != null">
+        COLLEGE_CODE = #{collegeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="majorCode != null">
+        MAJOR_CODE = #{majorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="majorName != null">
+        MAJOR_NAME = #{majorName,jdbcType=VARCHAR},
+      </if>
+      <if test="eduType != null">
+        EDU_TYPE = #{eduType,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="postCode != null">
+        POST_CODE = #{postCode,jdbcType=VARCHAR},
+      </if>
+      <if test="telNo1 != null">
+        TEL_NO1 = #{telNo1,jdbcType=VARCHAR},
+      </if>
+      <if test="telNo2 != null">
+        TEL_NO2 = #{telNo2,jdbcType=VARCHAR},
+      </if>
+      <if test="ems != null">
+        EMS = #{ems,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="collegeName != null">
+        COLLEGE_NAME = #{collegeName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PERSON_ID = #{personId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.ldu.grad.pojo.StudentInfo">
+    update STUDENT
+    set NAME = #{name,jdbcType=VARCHAR},
+      ACCESS_TYPE = #{accessType,jdbcType=VARCHAR},
+      EXAM_NO = #{examNo,jdbcType=VARCHAR},
+      STUDENT_NO = #{studentNo,jdbcType=VARCHAR},
+      COLLEGE_CODE = #{collegeCode,jdbcType=VARCHAR},
+      MAJOR_CODE = #{majorCode,jdbcType=VARCHAR},
+      MAJOR_NAME = #{majorName,jdbcType=VARCHAR},
+      EDU_TYPE = #{eduType,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      POST_CODE = #{postCode,jdbcType=VARCHAR},
+      TEL_NO1 = #{telNo1,jdbcType=VARCHAR},
+      TEL_NO2 = #{telNo2,jdbcType=VARCHAR},
+      EMS = #{ems,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      COLLEGE_NAME = #{collegeName,jdbcType=VARCHAR}
+    where PERSON_ID = #{personId,jdbcType=VARCHAR}
+  </update>
+</mapper>

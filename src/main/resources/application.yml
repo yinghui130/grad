@@ -1,0 +1,31 @@
+server:
+  port: 9091
+mybatis: 
+  mapper-locations: classpath:mybatis/mapper/**/*Mapper.xml
+  config-location: classpath:mybatis/config.xml
+spring:
+  resources:
+    static-locations:  classpath:/static
+  datasource: 
+    url: jdbc:sqlserver://127.0.0.1:1433;DatabaseName=PWA
+    username: sa
+    password: Lyh130182!
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      auto-commit: true
+      maximum-pool-size: 25
+      minimum-idle: 5
+      idle-timeout: 30000
+      pool-name: gradHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: select 1
+  jackson:
+    joda-date-time-format: yyyy-MM-dd HH:mm:ss
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      max-file-size: 52428800
+      max-request-size: 52428800

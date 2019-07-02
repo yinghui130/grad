@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.ldu.grad.mapper.ExamResultInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.ldu.grad.pojo.ExamResultInfo">
+    <id column="BMH" jdbcType="NVARCHAR" property="bmh" />
+    <result column="BKXXFSMC" jdbcType="NVARCHAR" property="bkxxfsmc" />
+    <result column="BKXXFS" jdbcType="NVARCHAR" property="bkxxfs" />
+    <result column="BKYXSM" jdbcType="NVARCHAR" property="bkyxsm" />
+    <result column="BKYXSMC" jdbcType="NVARCHAR" property="bkyxsmc" />
+    <result column="BKZYDM" jdbcType="NVARCHAR" property="bkzydm" />
+    <result column="BKZYMC" jdbcType="NVARCHAR" property="bkzymc" />
+    <result column="KSBH" jdbcType="NVARCHAR" property="ksbh" />
+    <result column="XM" jdbcType="NVARCHAR" property="xm" />
+    <result column="ZJHM" jdbcType="NVARCHAR" property="zjhm" />
+    <result column="ZZLLM" jdbcType="NVARCHAR" property="zzllm" />
+    <result column="ZZLLMC" jdbcType="NVARCHAR" property="zzllmc" />
+    <result column="ZZLL" jdbcType="INTEGER" property="zzll" />
+    <result column="WGYM" jdbcType="NVARCHAR" property="wgym" />
+    <result column="WGYMC" jdbcType="NVARCHAR" property="wgymc" />
+    <result column="WGY" jdbcType="INTEGER" property="wgy" />
+    <result column="YWK1M" jdbcType="NVARCHAR" property="ywk1m" />
+    <result column="YWK1MC" jdbcType="NVARCHAR" property="ywk1mc" />
+    <result column="YWK1" jdbcType="INTEGER" property="ywk1" />
+    <result column="YWK2M" jdbcType="NVARCHAR" property="ywk2m" />
+    <result column="YWK2MC" jdbcType="NVARCHAR" property="ywk2mc" />
+    <result column="YWK2" jdbcType="INTEGER" property="ywk2" />
+    <result column="ZF" jdbcType="INTEGER" property="zf" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    BMH, BKXXFSMC, BKXXFS, BKYXSM, BKYXSMC, BKZYDM, BKZYMC, KSBH, XM, ZJHM, ZZLLM, ZZLLMC, 
+    ZZLL, WGYM, WGYMC, WGY, YWK1M, YWK1MC, YWK1, YWK2M, YWK2MC, YWK2, ZF
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from EXAM_RESULT
+    where BMH = #{bmh,jdbcType=NVARCHAR}
+  </select>
+  <select id="selectByXmZjhm" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from EXAM_RESULT
+    where XM = #{xm,jdbcType=NVARCHAR} and ZJHM=#{zjhm,jdbcType=NVARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from EXAM_RESULT
+    where BMH = #{bmh,jdbcType=NVARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.edu.ldu.grad.pojo.ExamResultInfo">
+    insert into EXAM_RESULT (BMH, BKXXFSMC, BKXXFS, 
+      BKYXSM, BKYXSMC, BKZYDM, 
+      BKZYMC, KSBH, XM, 
+      ZJHM, ZZLLM, ZZLLMC, 
+      ZZLL, WGYM, WGYMC, 
+      WGY, YWK1M, YWK1MC, 
+      YWK1, YWK2M, YWK2MC, 
+      YWK2, ZF)
+    values (#{bmh,jdbcType=NVARCHAR}, #{bkxxfsmc,jdbcType=NVARCHAR}, #{bkxxfs,jdbcType=NVARCHAR}, 
+      #{bkyxsm,jdbcType=NVARCHAR}, #{bkyxsmc,jdbcType=NVARCHAR}, #{bkzydm,jdbcType=NVARCHAR}, 
+      #{bkzymc,jdbcType=NVARCHAR}, #{ksbh,jdbcType=NVARCHAR}, #{xm,jdbcType=NVARCHAR}, 
+      #{zjhm,jdbcType=NVARCHAR}, #{zzllm,jdbcType=NVARCHAR}, #{zzllmc,jdbcType=NVARCHAR}, 
+      #{zzll,jdbcType=INTEGER}, #{wgym,jdbcType=NVARCHAR}, #{wgymc,jdbcType=NVARCHAR}, 
+      #{wgy,jdbcType=INTEGER}, #{ywk1m,jdbcType=NVARCHAR}, #{ywk1mc,jdbcType=NVARCHAR}, 
+      #{ywk1,jdbcType=INTEGER}, #{ywk2m,jdbcType=NVARCHAR}, #{ywk2mc,jdbcType=NVARCHAR}, 
+      #{ywk2,jdbcType=INTEGER}, #{zf,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.ldu.grad.pojo.ExamResultInfo">
+    insert into EXAM_RESULT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bmh != null">
+        BMH,
+      </if>
+      <if test="bkxxfsmc != null">
+        BKXXFSMC,
+      </if>
+      <if test="bkxxfs != null">
+        BKXXFS,
+      </if>
+      <if test="bkyxsm != null">
+        BKYXSM,
+      </if>
+      <if test="bkyxsmc != null">
+        BKYXSMC,
+      </if>
+      <if test="bkzydm != null">
+        BKZYDM,
+      </if>
+      <if test="bkzymc != null">
+        BKZYMC,
+      </if>
+      <if test="ksbh != null">
+        KSBH,
+      </if>
+      <if test="xm != null">
+        XM,
+      </if>
+      <if test="zjhm != null">
+        ZJHM,
+      </if>
+      <if test="zzllm != null">
+        ZZLLM,
+      </if>
+      <if test="zzllmc != null">
+        ZZLLMC,
+      </if>
+      <if test="zzll != null">
+        ZZLL,
+      </if>
+      <if test="wgym != null">
+        WGYM,
+      </if>
+      <if test="wgymc != null">
+        WGYMC,
+      </if>
+      <if test="wgy != null">
+        WGY,
+      </if>
+      <if test="ywk1m != null">
+        YWK1M,
+      </if>
+      <if test="ywk1mc != null">
+        YWK1MC,
+      </if>
+      <if test="ywk1 != null">
+        YWK1,
+      </if>
+      <if test="ywk2m != null">
+        YWK2M,
+      </if>
+      <if test="ywk2mc != null">
+        YWK2MC,
+      </if>
+      <if test="ywk2 != null">
+        YWK2,
+      </if>
+      <if test="zf != null">
+        ZF,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bmh != null">
+        #{bmh,jdbcType=NVARCHAR},
+      </if>
+      <if test="bkxxfsmc != null">
+        #{bkxxfsmc,jdbcType=NVARCHAR},
+      </if>
+      <if test="bkxxfs != null">
+        #{bkxxfs,jdbcType=NVARCHAR},
+      </if>
+      <if test="bkyxsm != null">
+        #{bkyxsm,jdbcType=NVARCHAR},
+      </if>
+      <if test="bkyxsmc != null">
+        #{bkyxsmc,jdbcType=NVARCHAR},
+      </if>
+      <if test="bkzydm != null">
+        #{bkzydm,jdbcType=NVARCHAR},
+      </if>
+      <if test="bkzymc != null">
+        #{bkzymc,jdbcType=NVARCHAR},
+      </if>
+      <if test="ksbh != null">
+        #{ksbh,jdbcType=NVARCHAR},
+      </if>
+      <if test="xm != null">
+        #{xm,jdbcType=NVARCHAR},
+      </if>
+      <if test="zjhm != null">
+        #{zjhm,jdbcType=NVARCHAR},
+      </if>
+      <if test="zzllm != null">
+        #{zzllm,jdbcType=NVARCHAR},
+      </if>
+      <if test="zzllmc != null">
+        #{zzllmc,jdbcType=NVARCHAR},
+      </if>
+      <if test="zzll != null">
+        #{zzll,jdbcType=INTEGER},
+      </if>
+      <if test="wgym != null">
+        #{wgym,jdbcType=NVARCHAR},
+      </if>
+      <if test="wgymc != null">
+        #{wgymc,jdbcType=NVARCHAR},
+      </if>
+      <if test="wgy != null">
+        #{wgy,jdbcType=INTEGER},
+      </if>
+      <if test="ywk1m != null">
+        #{ywk1m,jdbcType=NVARCHAR},
+      </if>
+      <if test="ywk1mc != null">
+        #{ywk1mc,jdbcType=NVARCHAR},
+      </if>
+      <if test="ywk1 != null">
+        #{ywk1,jdbcType=INTEGER},
+      </if>
+      <if test="ywk2m != null">
+        #{ywk2m,jdbcType=NVARCHAR},
+      </if>
+      <if test="ywk2mc != null">
+        #{ywk2mc,jdbcType=NVARCHAR},
+      </if>
+      <if test="ywk2 != null">
+        #{ywk2,jdbcType=INTEGER},
+      </if>
+      <if test="zf != null">
+        #{zf,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.ldu.grad.pojo.ExamResultInfo">
+    update EXAM_RESULT
+    <set>
+      <if test="bkxxfsmc != null">
+        BKXXFSMC = #{bkxxfsmc,jdbcType=NVARCHAR},
+      </if>
+      <if test="bkxxfs != null">
+        BKXXFS = #{bkxxfs,jdbcType=NVARCHAR},
+      </if>
+      <if test="bkyxsm != null">
+        BKYXSM = #{bkyxsm,jdbcType=NVARCHAR},
+      </if>
+      <if test="bkyxsmc != null">
+        BKYXSMC = #{bkyxsmc,jdbcType=NVARCHAR},
+      </if>
+      <if test="bkzydm != null">
+        BKZYDM = #{bkzydm,jdbcType=NVARCHAR},
+      </if>
+      <if test="bkzymc != null">
+        BKZYMC = #{bkzymc,jdbcType=NVARCHAR},
+      </if>
+      <if test="ksbh != null">
+        KSBH = #{ksbh,jdbcType=NVARCHAR},
+      </if>
+      <if test="xm != null">
+        XM = #{xm,jdbcType=NVARCHAR},
+      </if>
+      <if test="zjhm != null">
+        ZJHM = #{zjhm,jdbcType=NVARCHAR},
+      </if>
+      <if test="zzllm != null">
+        ZZLLM = #{zzllm,jdbcType=NVARCHAR},
+      </if>
+      <if test="zzllmc != null">
+        ZZLLMC = #{zzllmc,jdbcType=NVARCHAR},
+      </if>
+      <if test="zzll != null">
+        ZZLL = #{zzll,jdbcType=INTEGER},
+      </if>
+      <if test="wgym != null">
+        WGYM = #{wgym,jdbcType=NVARCHAR},
+      </if>
+      <if test="wgymc != null">
+        WGYMC = #{wgymc,jdbcType=NVARCHAR},
+      </if>
+      <if test="wgy != null">
+        WGY = #{wgy,jdbcType=INTEGER},
+      </if>
+      <if test="ywk1m != null">
+        YWK1M = #{ywk1m,jdbcType=NVARCHAR},
+      </if>
+      <if test="ywk1mc != null">
+        YWK1MC = #{ywk1mc,jdbcType=NVARCHAR},
+      </if>
+      <if test="ywk1 != null">
+        YWK1 = #{ywk1,jdbcType=INTEGER},
+      </if>
+      <if test="ywk2m != null">
+        YWK2M = #{ywk2m,jdbcType=NVARCHAR},
+      </if>
+      <if test="ywk2mc != null">
+        YWK2MC = #{ywk2mc,jdbcType=NVARCHAR},
+      </if>
+      <if test="ywk2 != null">
+        YWK2 = #{ywk2,jdbcType=INTEGER},
+      </if>
+      <if test="zf != null">
+        ZF = #{zf,jdbcType=INTEGER},
+      </if>
+    </set>
+    where BMH = #{bmh,jdbcType=NVARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.ldu.grad.pojo.ExamResultInfo">
+    update EXAM_RESULT
+    set BKXXFSMC = #{bkxxfsmc,jdbcType=NVARCHAR},
+      BKXXFS = #{bkxxfs,jdbcType=NVARCHAR},
+      BKYXSM = #{bkyxsm,jdbcType=NVARCHAR},
+      BKYXSMC = #{bkyxsmc,jdbcType=NVARCHAR},
+      BKZYDM = #{bkzydm,jdbcType=NVARCHAR},
+      BKZYMC = #{bkzymc,jdbcType=NVARCHAR},
+      KSBH = #{ksbh,jdbcType=NVARCHAR},
+      XM = #{xm,jdbcType=NVARCHAR},
+      ZJHM = #{zjhm,jdbcType=NVARCHAR},
+      ZZLLM = #{zzllm,jdbcType=NVARCHAR},
+      ZZLLMC = #{zzllmc,jdbcType=NVARCHAR},
+      ZZLL = #{zzll,jdbcType=INTEGER},
+      WGYM = #{wgym,jdbcType=NVARCHAR},
+      WGYMC = #{wgymc,jdbcType=NVARCHAR},
+      WGY = #{wgy,jdbcType=INTEGER},
+      YWK1M = #{ywk1m,jdbcType=NVARCHAR},
+      YWK1MC = #{ywk1mc,jdbcType=NVARCHAR},
+      YWK1 = #{ywk1,jdbcType=INTEGER},
+      YWK2M = #{ywk2m,jdbcType=NVARCHAR},
+      YWK2MC = #{ywk2mc,jdbcType=NVARCHAR},
+      YWK2 = #{ywk2,jdbcType=INTEGER},
+      ZF = #{zf,jdbcType=INTEGER}
+    where BMH = #{bmh,jdbcType=NVARCHAR}
+  </update>
+</mapper>

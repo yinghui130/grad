@@ -1,0 +1,15 @@
+http {
+    server {
+        listen 80;
+        server_name localhost;
+        location / {
+            root /home/tom/dev/vue/mvp/mvp/dist;
+            index index.html;
+            add_header 'Access-Control-Allow-Origin' '*';
+            add_header 'Access-Control-Allow-Methods' 'GET,POST,OPTIONS';
+        }
+        location /api {
+            proxy_pass http://localhost:9090/grad-0.1/api;
+        }
+    }
+}

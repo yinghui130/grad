@@ -1,0 +1,7 @@
+http://localhost:8081/exam/getExamResultInfo/李娜/371203199412060321
+http://localhost:8081/login/login/李娜/371203199412060321
+http://localhost:8081/exam/print?bmh=370998288
+http://localhost:8081/index.html
+
+更改通讯地址：http://localhost/student.html#/newlogin/stu
+打印成绩：http://localhost/student.html#/newlogin/exm

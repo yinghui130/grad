@@ -1,0 +1,2 @@
+webpackJsonp([5],{"Si+N":function(e,t,s){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n={render:function(){var e=this.$createElement,t=this._self._c||e;return t("div",{staticClass:"hello"},[t("h1",[this._v(this._s(this.msg))])])},staticRenderFns:[]},i=s("VU/8")({name:"cell",data:function(){return{msg:"多页面测试"+this.$myconfig.api_url}}},n,!1,null,null,null);t.default=i.exports}});
+//# sourceMappingURL=5.972c40b568dbb31c822d.js.map

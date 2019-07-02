@@ -1,0 +1,3 @@
+1.将应用下web-inf\下的core-renderer-R8.jar拷贝到tomcat安装目录下的lib中，以使该jar包晚于flying-saucer-core-9.0.7.jar加载；
+2.静态资源中的index.html和app.js中的路径需要根据实际路径进行替换；
+3.打印模版中的路径和端口需要根据需要替换；
