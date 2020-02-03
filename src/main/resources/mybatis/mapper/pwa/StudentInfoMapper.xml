@@ -18,10 +18,11 @@
     <result column="EMS" jdbcType="VARCHAR" property="ems" />
     <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="COLLEGE_NAME" jdbcType="VARCHAR" property="collegeName" />
+    <result column="ENROLL_FLAG" jdbcType="BIT" property="enrollFlag" />
   </resultMap>
   <sql id="Base_Column_List">
     PERSON_ID, NAME, ACCESS_TYPE, EXAM_NO, STUDENT_NO, COLLEGE_CODE, MAJOR_CODE, MAJOR_NAME, 
-    EDU_TYPE, ADDRESS, POST_CODE, TEL_NO1, TEL_NO2, EMS, UPDATE_TIME, COLLEGE_NAME
+    EDU_TYPE, ADDRESS, POST_CODE, TEL_NO1, TEL_NO2, EMS, UPDATE_TIME, COLLEGE_NAME, ENROLL_FLAG
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -39,13 +40,13 @@
       MAJOR_CODE, MAJOR_NAME, EDU_TYPE, 
       ADDRESS, POST_CODE, TEL_NO1, 
       TEL_NO2, EMS, UPDATE_TIME, 
-      COLLEGE_NAME)
+      COLLEGE_NAME, ENROLL_FLAG)
     values (#{personId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{accessType,jdbcType=VARCHAR}, 
       #{examNo,jdbcType=VARCHAR}, #{studentNo,jdbcType=VARCHAR}, #{collegeCode,jdbcType=VARCHAR}, 
       #{majorCode,jdbcType=VARCHAR}, #{majorName,jdbcType=VARCHAR}, #{eduType,jdbcType=VARCHAR}, 
       #{address,jdbcType=VARCHAR}, #{postCode,jdbcType=VARCHAR}, #{telNo1,jdbcType=VARCHAR}, 
       #{telNo2,jdbcType=VARCHAR}, #{ems,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{collegeName,jdbcType=VARCHAR})
+      #{collegeName,jdbcType=VARCHAR}, #{enrollFlag,jdbcType=BIT})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.ldu.grad.pojo.StudentInfo">
     insert into STUDENT
@@ -98,6 +99,9 @@
       <if test="collegeName != null">
         COLLEGE_NAME,
       </if>
+      <if test="enrollFlag != null">
+        ENROLL_FLAG,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="personId != null">
@@ -147,6 +151,9 @@
       </if>
       <if test="collegeName != null">
         #{collegeName,jdbcType=VARCHAR},
+      </if>
+      <if test="enrollFlag != null">
+        #{enrollFlag,jdbcType=BIT},
       </if>
     </trim>
   </insert>
@@ -198,6 +205,9 @@
       <if test="collegeName != null">
         COLLEGE_NAME = #{collegeName,jdbcType=VARCHAR},
       </if>
+      <if test="enrollFlag != null">
+        ENROLL_FLAG = #{enrollFlag,jdbcType=BIT},
+      </if>
     </set>
     where PERSON_ID = #{personId,jdbcType=VARCHAR}
   </update>
@@ -217,7 +227,8 @@
       TEL_NO2 = #{telNo2,jdbcType=VARCHAR},
       EMS = #{ems,jdbcType=VARCHAR},
       UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
-      COLLEGE_NAME = #{collegeName,jdbcType=VARCHAR}
+      COLLEGE_NAME = #{collegeName,jdbcType=VARCHAR},
+      ENROLL_FLAG = #{enrollFlag,jdbcType=BIT}
     where PERSON_ID = #{personId,jdbcType=VARCHAR}
   </update>
 </mapper>
