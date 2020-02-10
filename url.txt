@@ -5,3 +5,4 @@ http://localhost:8081/index.html
 
 更改通讯地址：http://localhost/student.html#/newlogin/stu
 打印成绩：http://localhost/student.html#/newlogin/exm
+成绩复核：http://locahost/student.html#/newlogin/chk

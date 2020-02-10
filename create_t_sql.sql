@@ -46,3 +46,33 @@ CREATE TABLE EXAM_RESULT (
 	CONSTRAINT PK_EXAM_RESULT PRIMARY KEY (BMH)
 ) GO;
 
+CREATE TABLE STUDENT_SUBJECT (
+	ksbh varchar(100) NOT NULL,
+	xm varchar(100) NULL,
+	zjhm varchar(100) NULL,
+	zzllm varchar(100) NULL,
+	zzllmc varchar(100) NULL,
+	wgym varchar(100) NULL,
+	wgymc varchar(100) NULL,
+	ywk1m varchar(100) NULL,
+	ywk1mc varchar(100) NULL,
+	ywk2m varchar(100) NULL,
+	ywk2mc varchar(100) NULL,
+	CONSTRAINT STUDENT_SUBJECT_MAP_PK PRIMARY KEY (ksbh)
+) GO;
+
+
+CREATE TABLE STU_EXAM_CHECK (
+	ksbh varchar(100) NOT NULL,
+	xm varchar(100) NULL,
+	zjhm varchar(100) NULL,
+	kcdm varchar(100) NOT NULL,
+	kcmc varchar(100) NULL,
+	sumit_time datetime NULL,
+	original_result varchar(100) NULL,
+	check_result varchar(100) NULL,
+	tel_no varchar(100) NULL,
+	CONSTRAINT STU_EXAM_CHECK_PK PRIMARY KEY (ksbh,kcdm)
+) GO;
+
+
