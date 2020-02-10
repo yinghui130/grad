@@ -58,16 +58,17 @@ public class StudentController {
     return new ResponseEntity<>(list, HttpStatus.OK);
   }
 
-  @PostMapping("/saveStuExamCheckList")
-  public HttpEntity<?> saveStuExamCheckList(@RequestBody List<StuExamCheckInfo> list) {
+  @PostMapping("/saveStuExamCheckList/{ksbh}")
+  public HttpEntity<?> saveStuExamCheckList(
+      @PathVariable(value = "ksbh", required = true) String ksbh,
+      @RequestBody List<StuExamCheckInfo> list) {
+    stuExamCheckInfoMapper.deleteByKsbh(ksbh);
     if (list.size() > 0) {
-      String ksbhString = list.get(0).getKsbh();
-      stuExamCheckInfoMapper.deleteByKsbh(ksbhString);
-    }
-    Date date = new Date();
-    for (StuExamCheckInfo stuExamCheckInfo : list) {
-      stuExamCheckInfo.setSumitTime(date);
-      stuExamCheckInfoMapper.insert(stuExamCheckInfo);
+      Date date = new Date();
+      for (StuExamCheckInfo stuExamCheckInfo : list) {
+        stuExamCheckInfo.setSumitTime(date);
+        stuExamCheckInfoMapper.insert(stuExamCheckInfo);
+      }
     }
     return new ResponseEntity<>(true, HttpStatus.OK);
   }
