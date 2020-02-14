@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.ldu.grad.mapper.StuExamCheckInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.ldu.grad.pojo.StuExamCheckInfo">
+    <id column="ksbh" jdbcType="VARCHAR" property="ksbh" />
+    <id column="kcdm" jdbcType="VARCHAR" property="kcdm" />
+    <result column="xm" jdbcType="VARCHAR" property="xm" />
+    <result column="zjhm" jdbcType="VARCHAR" property="zjhm" />
+    <result column="kcmc" jdbcType="VARCHAR" property="kcmc" />
+    <result column="sumit_time" jdbcType="TIMESTAMP" property="sumitTime" />
+    <result column="original_result" jdbcType="VARCHAR" property="originalResult" />
+    <result column="check_result" jdbcType="VARCHAR" property="checkResult" />
+    <result column="tel_no" jdbcType="VARCHAR" property="telNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ksbh, kcdm, xm, zjhm, kcmc, sumit_time, original_result, check_result, tel_no
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="cn.edu.ldu.grad.pojo.StuExamCheckInfoKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from STU_EXAM_CHECK
+    where ksbh = #{ksbh,jdbcType=VARCHAR}
+      and kcdm = #{kcdm,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByKsbh" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from STU_EXAM_CHECK
+    where ksbh = #{ksbh,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="cn.edu.ldu.grad.pojo.StuExamCheckInfoKey">
+    delete from STU_EXAM_CHECK
+    where ksbh = #{ksbh,jdbcType=VARCHAR}
+      and kcdm = #{kcdm,jdbcType=VARCHAR}
+  </delete>
+   <delete id="deleteByKsbh"  parameterType="java.lang.String" >
+    delete from STU_EXAM_CHECK
+    where ksbh = #{ksbh,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.edu.ldu.grad.pojo.StuExamCheckInfo">
+    insert into STU_EXAM_CHECK (ksbh, kcdm, xm, 
+      zjhm, kcmc, sumit_time, 
+      original_result, check_result, tel_no
+      )
+    values (#{ksbh,jdbcType=VARCHAR}, #{kcdm,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, 
+      #{zjhm,jdbcType=VARCHAR}, #{kcmc,jdbcType=VARCHAR}, #{sumitTime,jdbcType=TIMESTAMP}, 
+      #{originalResult,jdbcType=VARCHAR}, #{checkResult,jdbcType=VARCHAR}, #{telNo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.ldu.grad.pojo.StuExamCheckInfo">
+    insert into STU_EXAM_CHECK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ksbh != null">
+        ksbh,
+      </if>
+      <if test="kcdm != null">
+        kcdm,
+      </if>
+      <if test="xm != null">
+        xm,
+      </if>
+      <if test="zjhm != null">
+        zjhm,
+      </if>
+      <if test="kcmc != null">
+        kcmc,
+      </if>
+      <if test="sumitTime != null">
+        sumit_time,
+      </if>
+      <if test="originalResult != null">
+        original_result,
+      </if>
+      <if test="checkResult != null">
+        check_result,
+      </if>
+      <if test="telNo != null">
+        tel_no,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ksbh != null">
+        #{ksbh,jdbcType=VARCHAR},
+      </if>
+      <if test="kcdm != null">
+        #{kcdm,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null">
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="zjhm != null">
+        #{zjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="kcmc != null">
+        #{kcmc,jdbcType=VARCHAR},
+      </if>
+      <if test="sumitTime != null">
+        #{sumitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="originalResult != null">
+        #{originalResult,jdbcType=VARCHAR},
+      </if>
+      <if test="checkResult != null">
+        #{checkResult,jdbcType=VARCHAR},
+      </if>
+      <if test="telNo != null">
+        #{telNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.ldu.grad.pojo.StuExamCheckInfo">
+    update STU_EXAM_CHECK
+    <set>
+      <if test="xm != null">
+        xm = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="zjhm != null">
+        zjhm = #{zjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="kcmc != null">
+        kcmc = #{kcmc,jdbcType=VARCHAR},
+      </if>
+      <if test="sumitTime != null">
+        sumit_time = #{sumitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="originalResult != null">
+        original_result = #{originalResult,jdbcType=VARCHAR},
+      </if>
+      <if test="checkResult != null">
+        check_result = #{checkResult,jdbcType=VARCHAR},
+      </if>
+      <if test="telNo != null">
+        tel_no = #{telNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ksbh = #{ksbh,jdbcType=VARCHAR}
+      and kcdm = #{kcdm,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.ldu.grad.pojo.StuExamCheckInfo">
+    update STU_EXAM_CHECK
+    set xm = #{xm,jdbcType=VARCHAR},
+      zjhm = #{zjhm,jdbcType=VARCHAR},
+      kcmc = #{kcmc,jdbcType=VARCHAR},
+      sumit_time = #{sumitTime,jdbcType=TIMESTAMP},
+      original_result = #{originalResult,jdbcType=VARCHAR},
+      check_result = #{checkResult,jdbcType=VARCHAR},
+      tel_no = #{telNo,jdbcType=VARCHAR}
+    where ksbh = #{ksbh,jdbcType=VARCHAR}
+      and kcdm = #{kcdm,jdbcType=VARCHAR}
+  </update>
+</mapper>

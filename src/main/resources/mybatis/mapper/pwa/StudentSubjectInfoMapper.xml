@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.ldu.grad.mapper.StudentSubjectInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.ldu.grad.pojo.StudentSubjectInfo">
+    <id column="ksbh" jdbcType="VARCHAR" property="ksbh" />
+    <result column="xm" jdbcType="VARCHAR" property="xm" />
+    <result column="zjhm" jdbcType="VARCHAR" property="zjhm" />
+    <result column="zzllm" jdbcType="VARCHAR" property="zzllm" />
+    <result column="zzllmc" jdbcType="VARCHAR" property="zzllmc" />
+    <result column="wgym" jdbcType="VARCHAR" property="wgym" />
+    <result column="wgymc" jdbcType="VARCHAR" property="wgymc" />
+    <result column="ywk1m" jdbcType="VARCHAR" property="ywk1m" />
+    <result column="ywk1mc" jdbcType="VARCHAR" property="ywk1mc" />
+    <result column="ywk2m" jdbcType="VARCHAR" property="ywk2m" />
+    <result column="ywk2mc" jdbcType="VARCHAR" property="ywk2mc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ksbh, xm, zjhm, zzllm, zzllmc, wgym, wgymc, ywk1m, ywk1mc, ywk2m, ywk2mc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from STUDENT_SUBJECT
+    where ksbh = #{ksbh,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from STUDENT_SUBJECT
+    where ksbh = #{ksbh,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.edu.ldu.grad.pojo.StudentSubjectInfo">
+    insert into STUDENT_SUBJECT (ksbh, xm, zjhm, 
+      zzllm, zzllmc, wgym, 
+      wgymc, ywk1m, ywk1mc, 
+      ywk2m, ywk2mc)
+    values (#{ksbh,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, #{zjhm,jdbcType=VARCHAR}, 
+      #{zzllm,jdbcType=VARCHAR}, #{zzllmc,jdbcType=VARCHAR}, #{wgym,jdbcType=VARCHAR}, 
+      #{wgymc,jdbcType=VARCHAR}, #{ywk1m,jdbcType=VARCHAR}, #{ywk1mc,jdbcType=VARCHAR}, 
+      #{ywk2m,jdbcType=VARCHAR}, #{ywk2mc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.ldu.grad.pojo.StudentSubjectInfo">
+    insert into STUDENT_SUBJECT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ksbh != null">
+        ksbh,
+      </if>
+      <if test="xm != null">
+        xm,
+      </if>
+      <if test="zjhm != null">
+        zjhm,
+      </if>
+      <if test="zzllm != null">
+        zzllm,
+      </if>
+      <if test="zzllmc != null">
+        zzllmc,
+      </if>
+      <if test="wgym != null">
+        wgym,
+      </if>
+      <if test="wgymc != null">
+        wgymc,
+      </if>
+      <if test="ywk1m != null">
+        ywk1m,
+      </if>
+      <if test="ywk1mc != null">
+        ywk1mc,
+      </if>
+      <if test="ywk2m != null">
+        ywk2m,
+      </if>
+      <if test="ywk2mc != null">
+        ywk2mc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ksbh != null">
+        #{ksbh,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null">
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="zjhm != null">
+        #{zjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="zzllm != null">
+        #{zzllm,jdbcType=VARCHAR},
+      </if>
+      <if test="zzllmc != null">
+        #{zzllmc,jdbcType=VARCHAR},
+      </if>
+      <if test="wgym != null">
+        #{wgym,jdbcType=VARCHAR},
+      </if>
+      <if test="wgymc != null">
+        #{wgymc,jdbcType=VARCHAR},
+      </if>
+      <if test="ywk1m != null">
+        #{ywk1m,jdbcType=VARCHAR},
+      </if>
+      <if test="ywk1mc != null">
+        #{ywk1mc,jdbcType=VARCHAR},
+      </if>
+      <if test="ywk2m != null">
+        #{ywk2m,jdbcType=VARCHAR},
+      </if>
+      <if test="ywk2mc != null">
+        #{ywk2mc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.ldu.grad.pojo.StudentSubjectInfo">
+    update STUDENT_SUBJECT
+    <set>
+      <if test="xm != null">
+        xm = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="zjhm != null">
+        zjhm = #{zjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="zzllm != null">
+        zzllm = #{zzllm,jdbcType=VARCHAR},
+      </if>
+      <if test="zzllmc != null">
+        zzllmc = #{zzllmc,jdbcType=VARCHAR},
+      </if>
+      <if test="wgym != null">
+        wgym = #{wgym,jdbcType=VARCHAR},
+      </if>
+      <if test="wgymc != null">
+        wgymc = #{wgymc,jdbcType=VARCHAR},
+      </if>
+      <if test="ywk1m != null">
+        ywk1m = #{ywk1m,jdbcType=VARCHAR},
+      </if>
+      <if test="ywk1mc != null">
+        ywk1mc = #{ywk1mc,jdbcType=VARCHAR},
+      </if>
+      <if test="ywk2m != null">
+        ywk2m = #{ywk2m,jdbcType=VARCHAR},
+      </if>
+      <if test="ywk2mc != null">
+        ywk2mc = #{ywk2mc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ksbh = #{ksbh,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.ldu.grad.pojo.StudentSubjectInfo">
+    update STUDENT_SUBJECT
+    set xm = #{xm,jdbcType=VARCHAR},
+      zjhm = #{zjhm,jdbcType=VARCHAR},
+      zzllm = #{zzllm,jdbcType=VARCHAR},
+      zzllmc = #{zzllmc,jdbcType=VARCHAR},
+      wgym = #{wgym,jdbcType=VARCHAR},
+      wgymc = #{wgymc,jdbcType=VARCHAR},
+      ywk1m = #{ywk1m,jdbcType=VARCHAR},
+      ywk1mc = #{ywk1mc,jdbcType=VARCHAR},
+      ywk2m = #{ywk2m,jdbcType=VARCHAR},
+      ywk2mc = #{ywk2mc,jdbcType=VARCHAR}
+    where ksbh = #{ksbh,jdbcType=VARCHAR}
+  </update>
+</mapper>
