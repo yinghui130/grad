@@ -14,6 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
   @GetMapping("/hello")
   public HttpEntity<?> hello() {
-    return new ResponseEntity<>("系统运行成功！！", HttpStatus.OK);
+    return new ResponseEntity<>("<span style='color:green'>系统运行成功！！</span>", HttpStatus.OK);
   }
 }

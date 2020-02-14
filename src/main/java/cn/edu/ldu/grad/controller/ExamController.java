@@ -34,9 +34,10 @@ public class ExamController {
     return new ResponseEntity<>(examResultInfo, HttpStatus.OK);
   }
 
-  @RequestMapping(value = "/getExamResultInfo/{xm}/{zjhm}", method = RequestMethod.POST)
+  @RequestMapping(value = "/getExamResultInfo/{xm}/{zjhm}/{type}", method = RequestMethod.POST)
   public ExamResultInfo getExamResultInfo(@PathVariable("xm") String xm,
-      @PathVariable("zjhm") String zjhm) {
+      @PathVariable("zjhm") String zjhm,
+      @PathVariable(value = "type", required = true) String type) {
     return examResultInfoService.selectByXmZjhm(xm, zjhm);
   }
 
@@ -49,11 +50,12 @@ public class ExamController {
     if (virtualPath == null || virtualPath.isEmpty()) {
       virtualPath = "";
     }
-    System.out.println(String.format("%s\t%s\t%s", request.getLocalPort(),request.getServerPort(),request.getRemotePort()));
+    System.out.println(String.format("%s\t%s\t%s", request.getLocalPort(), request.getServerPort(),
+        request.getRemotePort()));
     html = html.replace("[#virtualPath#]", virtualPath).replace("[#port#]",
         request.getLocalPort() + "");
     response.setContentType("application/pdf");
-    response.setHeader("Content-Disposition",String.format("filename=%s.pdf",bmh));
+    response.setHeader("Content-Disposition", String.format("filename=%s.pdf", bmh));
     PDFUtil.createPDF(response.getOutputStream(), html);
   }
 }

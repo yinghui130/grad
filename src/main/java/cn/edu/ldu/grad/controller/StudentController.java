@@ -2,7 +2,6 @@ package cn.edu.ldu.grad.controller;
 
 import java.util.Date;
 import java.util.List;
-import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -34,13 +33,18 @@ public class StudentController {
   @PostMapping("/login/{username}/{password}/{type}")
   public HttpEntity<?> logIn(@PathVariable(value = "username", required = true) String username,
       @PathVariable(value = "password", required = true) String password,
-      @PathVariable(value = "type", required = false) String type) {
-    if (Strings.isBlank(type)) {
+      @PathVariable(value = "type", required = true) String type) {
+    if (type.equals("stu")) {
       StudentInfo studentInfo = studentInfoMapper.selectByPrimaryKey(password);
+      if (studentInfo != null && !studentInfo.getName().equals(username))
+        studentInfo = null;
       return new ResponseEntity<>(studentInfo, HttpStatus.OK);
     } else {
       StudentSubjectInfo stuSubInfo = studentSubjectInfoMapper.selectByPrimaryKey(username);
+      if (stuSubInfo != null && !stuSubInfo.getZjhm().equals(password))
+        stuSubInfo = null;
       return new ResponseEntity<>(stuSubInfo, HttpStatus.OK);
+
     }
   }
 
