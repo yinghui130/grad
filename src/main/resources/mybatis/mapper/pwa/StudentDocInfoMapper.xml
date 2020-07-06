@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.ldu.grad.mapper.StudentDocInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.ldu.grad.pojo.StudentDocInfo">
+    <id column="zjhm" jdbcType="VARCHAR" property="zjhm" />
+    <result column="xhtxm" jdbcType="VARCHAR" property="xhtxm" />
+    <result column="xh" jdbcType="VARCHAR" property="xh" />
+    <result column="xm" jdbcType="VARCHAR" property="xm" />
+    <result column="lqzymc" jdbcType="VARCHAR" property="lqzymc" />
+    <result column="lqyxsmc" jdbcType="VARCHAR" property="lqyxsmc" />
+    <result column="lqxxfsmc" jdbcType="VARCHAR" property="lqxxfsmc" />
+    <result column="xz" jdbcType="VARCHAR" property="xz" />
+    <result column="daszdw" jdbcType="VARCHAR" property="daszdw" />
+    <result column="download_date" jdbcType="TIMESTAMP" property="downloadDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    zjhm, xhtxm, xh, xm, lqzymc, lqyxsmc, lqxxfsmc, xz, daszdw, download_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from STUDENT_DOC
+    where zjhm = #{zjhm,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from STUDENT_DOC
+    where zjhm = #{zjhm,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.edu.ldu.grad.pojo.StudentDocInfo">
+    insert into STUDENT_DOC (zjhm, xhtxm, xh, 
+      xm, lqzymc, lqyxsmc, 
+      lqxxfsmc, xz, daszdw, 
+      download_date)
+    values (#{zjhm,jdbcType=VARCHAR}, #{xhtxm,jdbcType=VARCHAR}, #{xh,jdbcType=VARCHAR}, 
+      #{xm,jdbcType=VARCHAR}, #{lqzymc,jdbcType=VARCHAR}, #{lqyxsmc,jdbcType=VARCHAR}, 
+      #{lqxxfsmc,jdbcType=VARCHAR}, #{xz,jdbcType=VARCHAR}, #{daszdw,jdbcType=VARCHAR}, 
+      #{downloadDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.ldu.grad.pojo.StudentDocInfo">
+    insert into STUDENT_DOC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="zjhm != null">
+        zjhm,
+      </if>
+      <if test="xhtxm != null">
+        xhtxm,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="xm != null">
+        xm,
+      </if>
+      <if test="lqzymc != null">
+        lqzymc,
+      </if>
+      <if test="lqyxsmc != null">
+        lqyxsmc,
+      </if>
+      <if test="lqxxfsmc != null">
+        lqxxfsmc,
+      </if>
+      <if test="xz != null">
+        xz,
+      </if>
+      <if test="daszdw != null">
+        daszdw,
+      </if>
+      <if test="downloadDate != null">
+        download_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="zjhm != null">
+        #{zjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="xhtxm != null">
+        #{xhtxm,jdbcType=VARCHAR},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null">
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="lqzymc != null">
+        #{lqzymc,jdbcType=VARCHAR},
+      </if>
+      <if test="lqyxsmc != null">
+        #{lqyxsmc,jdbcType=VARCHAR},
+      </if>
+      <if test="lqxxfsmc != null">
+        #{lqxxfsmc,jdbcType=VARCHAR},
+      </if>
+      <if test="xz != null">
+        #{xz,jdbcType=VARCHAR},
+      </if>
+      <if test="daszdw != null">
+        #{daszdw,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadDate != null">
+        #{downloadDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.ldu.grad.pojo.StudentDocInfo">
+    update STUDENT_DOC
+    <set>
+      <if test="xhtxm != null">
+        xhtxm = #{xhtxm,jdbcType=VARCHAR},
+      </if>
+      <if test="xh != null">
+        xh = #{xh,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null">
+        xm = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="lqzymc != null">
+        lqzymc = #{lqzymc,jdbcType=VARCHAR},
+      </if>
+      <if test="lqyxsmc != null">
+        lqyxsmc = #{lqyxsmc,jdbcType=VARCHAR},
+      </if>
+      <if test="lqxxfsmc != null">
+        lqxxfsmc = #{lqxxfsmc,jdbcType=VARCHAR},
+      </if>
+      <if test="xz != null">
+        xz = #{xz,jdbcType=VARCHAR},
+      </if>
+      <if test="daszdw != null">
+        daszdw = #{daszdw,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadDate != null">
+        download_date = #{downloadDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where zjhm = #{zjhm,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.ldu.grad.pojo.StudentDocInfo">
+    update STUDENT_DOC
+    set xhtxm = #{xhtxm,jdbcType=VARCHAR},
+      xh = #{xh,jdbcType=VARCHAR},
+      xm = #{xm,jdbcType=VARCHAR},
+      lqzymc = #{lqzymc,jdbcType=VARCHAR},
+      lqyxsmc = #{lqyxsmc,jdbcType=VARCHAR},
+      lqxxfsmc = #{lqxxfsmc,jdbcType=VARCHAR},
+      xz = #{xz,jdbcType=VARCHAR},
+      daszdw = #{daszdw,jdbcType=VARCHAR},
+      download_date = #{downloadDate,jdbcType=TIMESTAMP}
+    where zjhm = #{zjhm,jdbcType=VARCHAR}
+  </update>
+</mapper>
