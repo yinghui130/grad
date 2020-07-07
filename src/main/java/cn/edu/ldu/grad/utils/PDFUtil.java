@@ -14,7 +14,9 @@ public class PDFUtil {
     ITextRenderer renderer = new ITextRenderer();
     renderer.setDocumentFromString(html);
     ITextFontResolver fontResolver = renderer.getFontResolver();
+    // BaseFont font = BaseFont.createFont();GBK2K-H
     fontResolver.addFont("pdf/font/simsun.ttc", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+    // fontResolver.addFont("GBK2K-H", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
     renderer.layout();
     renderer.createPDF(out);
   }

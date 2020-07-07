@@ -5,9 +5,7 @@
     <style>
         @page {
             size: A4;
-            width: 21cm;
-
-        }
+                  }
 
         .bodycss {
             font-family: SimSun;
@@ -19,7 +17,7 @@
             font-family: SimSun;
             font-size: 18;
             border: 1px;
-            border-color: white;
+            border-color: transparent;
             border-style: solid;
             border-collapse: collapse;
         }
@@ -27,11 +25,11 @@
         th {
             text-align: left;
             font-family: SimSun;
-            font-size: 18;
+            font-size: 17;
             height: 13.5pt;
             width: 68px;
             border: 1px;
-            border-color: white;
+            border-color: transparent;
             border-style: solid;
             border-collapse: collapse;
             margin-left: 5px;
@@ -44,7 +42,7 @@
             height: 13.5pt;
             width: 68px;
             border: 1px;
-            border-color: white;
+            border-color: transparent;
             border-style: solid;
             border-collapse: collapse;
             margin-left: 5px;
@@ -56,7 +54,7 @@
             font-size: 18;
             height: 40px;
             border: 1px;
-            border-color: white;
+            border-color: transparent;
             border-style: solid;
             border-collapse: collapse;
             margin-left: 5px;
@@ -102,15 +100,13 @@
             <td style="height: 13.5pt; "></td>
         </tr>
         <tr height="18" style="height: 13.5pt">
-            <td class="auto-style1" height="72" rowspan="4" style=""><img height='120px' width='90px'
+            <td  height="72" rowspan="4" style=""><img height='120px' width='90px'
                     src="http://127.0.0.1:[#port#][#virtualPath#]/static/photo/$xh0$.jpg" /></td>
-            <td class="auto-style2" colspan="7" rowspan="2"><b style="font-size:18pt">鲁东大学$year$年研究生招生考生人事档案标签</b></td>
-            <td></td>
-            <td></td>
+            <td colspan="9" rowspan="2" height="18"><span><b style="font-size:18pt">鲁东大学$year$年研究生招生考生人事档案标签</b></span></td>
         </tr>
         <tr height="18" style="height: 13.5pt">
             <td height="18" style="height: 13.5pt"></td>
-            <td></td>
+            <td colspan="9" ></td>
         </tr>
         <tr height="18" style="height: 13.5pt">
             <td height="18" style="height: 13.5pt"></td>
@@ -122,52 +118,42 @@
             <td colspan="4" style="width:200px;text-align:left;"><img height='50px' width='200px'
                     src="http://127.0.0.1:[#port#][#virtualPath#]/barcodeservlet?type=code39&amp;msg=$xh$&amp;fmt=png" /></td>
         </tr>
-               <tr height="18" style="height: 13.5pt">
-            <td height="18" style="height: 13.5pt; "></td>
-            <td style="height: 13.5pt; "></td>
-            <td style="height: 13.5pt; "></td>
-            <td style="height: 13.5pt; "></td>
-            <td style="height: 13.5pt; "></td>
-            <td style="height: 13.5pt; "></td>
-            <td style="height: 13.5pt; "></td>
-            <td style="height: 13.5pt; "></td>
-            <td style="height: 13.5pt; "></td>
-            <td style="height: 13.5pt; "></td>
+               <tr  style="height: 8px">
+            <td colspan="10" style="height: 8px; "><span style="color:white">空格空格空格空格空格空格空格空格</span></td>
         </tr>
         <tr>
-            <td align="left" class="auto-style16" style="height: 13.5pt; ; border-color: black;">姓名</td>
-            <td class="auto-style17" colspan="3" style="height: 13.5pt; width: 150px  ;border-color: black;"><b>$xm$</b>
+            <td align="left" class="auto-style16" style="height: 13.5pt; width: 100px;border-color: black;">姓名</td>
+            <td  colspan="4" style="height: 13.5pt; width: 240px  ;border-color: black;"><b>$xm$</b>
             </td>
-            <td align="left" class="auto-style16" style="height: 13.5pt;   ;border-color: black;">学号</td>
-            <td class="auto-style18" colspan="5" style="height: 13.5pt; width: 250px ;border-color: black;"><b>$xh0$</b>
+            <td align="left" class="auto-style16" style="height: 13.5pt;width: 100px;border-color: black;">学号</td>
+            <td class="auto-style18" colspan="4" style="height: 13.5pt; width: 240px ;border-color: black;"><b>$xh0$</b>
             </td>
-
         </tr>
         <tr>
-            <td align="left" class="auto-style16" style="height: 13.5pt; ;border-color: black;">身份证号</td>
-            <td class="auto-style17" colspan="3" style="height: 13.5pt; width: 150px;border-color: black;">
+            <td align="left" class="auto-style16" style="height: 13.5pt; width: 100px;border-color: black;">身份证号</td>
+            <td class="auto-style17" colspan="4" style="height: 13.5pt; width: 240px;border-color: black;">
                 <b>$userId$</b></td>
-            <td align="left" class="auto-style16" style="height: 13.5pt; ;border-color: black;">录取专业</td>
-            <td class="auto-style18" colspan="5" style="height: 13.5pt; width: 250px;border-color: black;"><b>$zy$</b>
+            <td align="left" class="auto-style16" style="height: 13.5pt;  width: 100px;border-color: black;">录取专业</td>
+            <td class="auto-style18" colspan="4" style="height: 13.5pt; width: 250px;border-color: black;"><b>$zy$</b>
             </td>
 
         </tr>
-        <tr height="18" style="height: 13.5pt">
-            <td align="left" class="auto-style4" height="18" style="height: 13.5pt; ;border-color: black;">
+        <tr >
+            <td align="left" class="auto-style4" height="18" style="height: 13.5pt; width: 100px;;border-color: black;">
                 录取学院</td>
-            <td class="auto-style5" colspan="3" style="height: 13.5pt; width: 150px;border-color: black;"><b>$xy$</b>
+            <td class="auto-style5" colspan="4" style="height: 13.5pt; width: 240px;border-color: black;"><b>$xy$</b>
             </td>
-            <td align="left" class="auto-style6" style="height: 13.5pt; ;border-color: black;">学习方式</td>
-            <td class="auto-style5" colspan="2" style="height: 13.5pt; width: 100px;border-color: black;"><b>$xxfs$</b>
+            <td align="left" class="auto-style6" style="height: 13.5pt; width: 80px;border-color: black;">学习方式</td>
+            <td class="auto-style5" colspan="2" style="height: 13.5pt; width: 90px;border-color: black;"><b>$xxfs$</b>
             </td>
-            <td align="left" class="auto-style6" style="height: 13.5pt; ;border-color: black;">学制</td>
-            <td class="auto-style5" colspan="2" style="height: 13.5pt; width: 100px;border-color: black;"><b>$xz$</b>
+            <td align="left" class="auto-style6" style="height: 13.5pt; width: 50px;border-color: black;">学制</td>
+            <td class="auto-style5" colspan="1" style="height: 13.5pt; width: 120px;border-color: black;"><b>$xz$</b>
             </td>
 
         </tr>
         <tr height="35" style="mso-height-source: userset; height: 26.25pt;border-color: black;">
             <td align="left" class="auto-style8" height="35"
-                style="height: 13.5pt; ;border-color: black;border-bottom:1px solid black ">报考时本人档案所在单位</td>
+                style="height: 13.5pt; ;border-color: black;border-bottom:1px solid black ">报考时档案所在单位</td>
             <td class="auto-style5" colspan="9"
                 style="height: 13.5pt; ;border-color: black;border-bottom:1px solid black "><b>$dadw$</b>
             </td>
@@ -231,7 +217,7 @@
         </tr>
 
         <tr height="18" style="height: 13.5pt">
-            <td class="auto-style13" colspan="10" height="18" style="line-height:1.5;text-align:left;"><u style="text-underline-style: single;"><span style="color:white">空格空格空格空格空格空格空格空格</span>：</u>
+            <td class="auto-style13" colspan="10" height="18" style="line-height:1.5;text-align:left;"><br/><u style="text-decoration-line: underline;text-underline-style: solid;"><span style="color:white">空格空格空格空格空格空格空格空格</span>：</u>
 </td>
 
         </tr>
@@ -277,7 +263,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td class="auto-style2" colspan="5">鲁 东 大 学</td>
+            <td class="auto-style2" colspan="5"><img height='4.2cm' width='4.2cm' style="z-index:-1; position:absolute;left:390px;	top:860px;" src="http://127.0.0.1:[#port#][#virtualPath#]/static/img/zhang.png" /> <span style="z-index:2">鲁 东 大 学</span></td>
         </tr>
         <tr height="18" style="height: 13.5pt">
             <td height="18" style="height: 13.5pt"></td>
