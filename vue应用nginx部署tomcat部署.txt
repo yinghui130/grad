@@ -13,3 +13,9 @@ http {
         }
     }
 }
+
+部署时将老的项目备份后删除
+将新项目部署上去。
+
+将老的grad/WEB-INF/classes/application.yml拷贝到新项目对应目录中。
+将学生的照片（需要jpg格式）以学号命名后放到grad/WEB-INF/classes/static/static/photo目录中

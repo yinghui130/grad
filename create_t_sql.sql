@@ -75,4 +75,17 @@ CREATE TABLE STU_EXAM_CHECK (
 	CONSTRAINT STU_EXAM_CHECK_PK PRIMARY KEY (ksbh,kcdm)
 ) GO;
 
+CREATE TABLE STUDENT_DOC (
+	xhtxm varchar(36) NULL,
+	xh varchar(36) NULL,
+	xm varchar(128) NULL,
+	zjhm varchar(128) NOT NULL,
+	lqzymc varchar(256) NULL,
+	lqyxsmc varchar(256) NULL,
+	lqxxfsmc varchar(100) NULL,
+	xz varchar(100) NULL,
+	daszdw varchar(512) NULL,
+	download_date datetime NULL,
+	CONSTRAINT STUDENT_DOC_PK PRIMARY KEY (zjhm)
+)
 
