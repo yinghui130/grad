@@ -85,7 +85,9 @@ CREATE TABLE STUDENT_DOC (
 	lqxxfsmc varchar(100) NULL,
 	xz varchar(100) NULL,
 	daszdw varchar(512) NULL,
+	lqlbm varchar(100) NULL,
 	download_date datetime NULL,
 	CONSTRAINT STUDENT_DOC_PK PRIMARY KEY (zjhm)
-)
+) 
+
 

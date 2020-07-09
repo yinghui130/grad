@@ -1,10 +1,16 @@
 package cn.edu.ldu.grad.controller;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.OutputStream;
 import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -106,17 +112,35 @@ public class StudentController {
   public void getStudentDocPDF(HttpServletRequest request, HttpServletResponse response)
       throws Exception {
     String userId = request.getParameter("userId");
-    String html = htmlGenerator.getStudentDoc(userId);
-    String virtualPath = request.getContextPath();
-    if (virtualPath == null || virtualPath.isEmpty()) {
-      virtualPath = "";
-    }
-    System.out.println(String.format("%s\t%s\t%s", request.getLocalPort(), request.getServerPort(),
-        request.getRemotePort()));
-    html = html.replace("[#virtualPath#]", virtualPath).replace("[#port#]",
-        request.getLocalPort() + "");
+    StudentDocInfo studentDocInfo = this.studentDocInfoMapper.selectByPrimaryKey(userId);
     response.setContentType("application/pdf");
     response.setHeader("Content-Disposition", String.format("filename=%s.pdf", userId));
-    PDFUtil.createPDF(response.getOutputStream(), html);
+    if (studentDocInfo.getLqlbm().equals("12")) {
+      Resource htmlResource = new ClassPathResource("pdf/定向协议书.pdf");
+      File htmlFile = htmlResource.getFile();
+      OutputStream os = null;
+      BufferedInputStream bis = new BufferedInputStream(new FileInputStream(htmlFile));
+      byte[] b = new byte[bis.available() + 1000];
+      int i = 0;
+      os = response.getOutputStream(); // 直接下载导出
+      while ((i = bis.read(b)) != -1) {
+        os.write(b, 0, i);
+        os.flush();
+        os.close();
+      }
+    }
+    if (studentDocInfo.getLqlbm().equals("11")) {
+      String html = htmlGenerator.getStudentDoc(userId);
+      String virtualPath = request.getContextPath();
+      if (virtualPath == null || virtualPath.isEmpty()) {
+        virtualPath = "";
+      }
+      System.out.println(String.format("%s\t%s\t%s", request.getLocalPort(),
+          request.getServerPort(), request.getRemotePort()));
+      html = html.replace("[#virtualPath#]", virtualPath).replace("[#port#]",
+          request.getLocalPort() + "");
+
+      PDFUtil.createPDF(response.getOutputStream(), html);
+    }
   }
 }

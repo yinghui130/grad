@@ -3,103 +3,113 @@ package cn.edu.ldu.grad.pojo;
 import java.util.Date;
 
 public class StudentDocInfo {
-    private String zjhm;
+  private String zjhm;
 
-    private String xhtxm;
+  private String xhtxm;
 
-    private String xh;
+  private String xh;
 
-    private String xm;
+  private String xm;
 
-    private String lqzymc;
+  private String lqzymc;
 
-    private String lqyxsmc;
+  private String lqyxsmc;
 
-    private String lqxxfsmc;
+  private String lqxxfsmc;
 
-    private String xz;
+  private String xz;
 
-    private String daszdw;
+  private String daszdw;
 
-    private Date downloadDate;
+  private String lqlbm;
 
-    public String getZjhm() {
-        return zjhm;
-    }
+  public String getLqlbm() {
+    return lqlbm;
+  }
 
-    public void setZjhm(String zjhm) {
-        this.zjhm = zjhm == null ? null : zjhm.trim();
-    }
+  public void setLqlbm(String lqlbm) {
+    this.lqlbm = lqlbm;
+  }
 
-    public String getXhtxm() {
-        return xhtxm;
-    }
+  private Date downloadDate;
 
-    public void setXhtxm(String xhtxm) {
-        this.xhtxm = xhtxm == null ? null : xhtxm.trim();
-    }
+  public String getZjhm() {
+    return zjhm;
+  }
 
-    public String getXh() {
-        return xh;
-    }
+  public void setZjhm(String zjhm) {
+    this.zjhm = zjhm == null ? null : zjhm.trim();
+  }
 
-    public void setXh(String xh) {
-        this.xh = xh == null ? null : xh.trim();
-    }
+  public String getXhtxm() {
+    return xhtxm;
+  }
 
-    public String getXm() {
-        return xm;
-    }
+  public void setXhtxm(String xhtxm) {
+    this.xhtxm = xhtxm == null ? null : xhtxm.trim();
+  }
 
-    public void setXm(String xm) {
-        this.xm = xm == null ? null : xm.trim();
-    }
+  public String getXh() {
+    return xh;
+  }
 
-    public String getLqzymc() {
-        return lqzymc;
-    }
+  public void setXh(String xh) {
+    this.xh = xh == null ? null : xh.trim();
+  }
 
-    public void setLqzymc(String lqzymc) {
-        this.lqzymc = lqzymc == null ? null : lqzymc.trim();
-    }
+  public String getXm() {
+    return xm;
+  }
 
-    public String getLqyxsmc() {
-        return lqyxsmc;
-    }
+  public void setXm(String xm) {
+    this.xm = xm == null ? null : xm.trim();
+  }
 
-    public void setLqyxsmc(String lqyxsmc) {
-        this.lqyxsmc = lqyxsmc == null ? null : lqyxsmc.trim();
-    }
+  public String getLqzymc() {
+    return lqzymc;
+  }
 
-    public String getLqxxfsmc() {
-        return lqxxfsmc;
-    }
+  public void setLqzymc(String lqzymc) {
+    this.lqzymc = lqzymc == null ? null : lqzymc.trim();
+  }
 
-    public void setLqxxfsmc(String lqxxfsmc) {
-        this.lqxxfsmc = lqxxfsmc == null ? null : lqxxfsmc.trim();
-    }
+  public String getLqyxsmc() {
+    return lqyxsmc;
+  }
 
-    public String getXz() {
-        return xz;
-    }
+  public void setLqyxsmc(String lqyxsmc) {
+    this.lqyxsmc = lqyxsmc == null ? null : lqyxsmc.trim();
+  }
 
-    public void setXz(String xz) {
-        this.xz = xz == null ? null : xz.trim();
-    }
+  public String getLqxxfsmc() {
+    return lqxxfsmc;
+  }
 
-    public String getDaszdw() {
-        return daszdw;
-    }
+  public void setLqxxfsmc(String lqxxfsmc) {
+    this.lqxxfsmc = lqxxfsmc == null ? null : lqxxfsmc.trim();
+  }
 
-    public void setDaszdw(String daszdw) {
-        this.daszdw = daszdw == null ? null : daszdw.trim();
-    }
+  public String getXz() {
+    return xz;
+  }
 
-    public Date getDownloadDate() {
-        return downloadDate;
-    }
+  public void setXz(String xz) {
+    this.xz = xz == null ? null : xz.trim();
+  }
 
-    public void setDownloadDate(Date downloadDate) {
-        this.downloadDate = downloadDate;
-    }
+  public String getDaszdw() {
+    return daszdw;
+  }
+
+  public void setDaszdw(String daszdw) {
+    this.daszdw = daszdw == null ? null : daszdw.trim();
+  }
+
+  public Date getDownloadDate() {
+    return downloadDate;
+  }
+
+  public void setDownloadDate(Date downloadDate) {
+    this.downloadDate = downloadDate;
+  }
 }

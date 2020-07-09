@@ -83,7 +83,7 @@ public class BarcodeUtil {
     }
   }
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
     String msg = "*2019110001*";
     String path = "/home/tom/dev/barcode.jpeg";
     generateFile(msg, path);
